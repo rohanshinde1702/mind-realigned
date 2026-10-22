@@ -37,7 +37,7 @@ export const metadata = {
   title: SITE_CONFIG.name,
   description: SITE_CONFIG.description,
   icons: {
-    icon: "/favicon.svg",
+    icon: "/images/logos/mLogo.png",
   },
 };
 
