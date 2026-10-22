@@ -1,69 +1,65 @@
-import Image from "next/image";
+import { Suspense } from "react";
+import Header from "@/components/header/Header";
+import Hero from "@/components/hero/Hero";
+import LogoBand from "@/components/band/LogoBand";
+import SoundDoors from "@/components/sound/SoundDoors";
+import GlobalImpact from "@/components/story/GlobalImpact";
+import FeaturedConversations from "@/components/talks/FeaturedConversations";
+import Testimonials from "@/components/voices/Testimonials";
+import ExploreCourses from "@/components/courses/ExploreCourses";
+import LeadCapture from "@/components/glimpse/LeadCapture";
+import FAQ from "@/components/faq/FAQ";
+import StayInTheLoop_1 from "@/components/begin/StayInTheLoop_1";
+import Footer from "@/components/footer/Footer";
+import ScrollToTop from "@/components/common/ScrollToTop";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.js
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+    <div className="min-h-screen bg-[#FBF7F2] text-[#2A211E] font-['DM_Sans',system-ui,sans-serif]">
+      {/* Sticky Header */}
+      <Header />
+
+      {/* Top Hero with peach gradient background */}
+      <div className="bg-[linear-gradient(180deg,#F8EAE5_0%,#EAC8BA_100%)] relative">
+        <Hero />
+      </div>
+
+      {/* Marquee Logo Band */}
+      <LogoBand />
+
+      {/* "Is this you?" - Sound Doors */}
+      <SoundDoors />
+
+      {/* "Small steps" - Global Impact */}
+      <GlobalImpact />
+
+      {/* Featured Podcast Conversations */}
+      <FeaturedConversations />
+
+      {/* Community Testimonials */}
+      <Suspense fallback={<div className="h-96" />}>
+        <Testimonials />
+      </Suspense>
+
+      {/* Explore Resources / Courses */}
+      <Suspense fallback={<div className="h-96" />}>
+        <ExploreCourses />
+      </Suspense>
+
+      {/* Lead Capture Free Gift Form */}
+      <LeadCapture />
+
+      {/* Frequently Asked Questions */}
+      <FAQ />
+
+      {/* Stay in the Loop Socials & Substack */}
+      <StayInTheLoop_1 />
+
+      {/* Footer */}
+      <Footer />
+
+      {/* Floating Scroll to Top Button */}
+      <ScrollToTop />
     </div>
   );
 }
