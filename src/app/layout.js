@@ -37,7 +37,13 @@ export const metadata = {
   title: SITE_CONFIG.name,
   description: SITE_CONFIG.description,
   icons: {
-    icon: "/images/logos/mLogo.png",
+    icon: [
+      { url: "/images/logos/mLogo.png", type: "image/png" },
+      { url: "/favicon.ico" },
+      { url: "/icon.png", type: "image/png" },
+    ],
+    shortcut: "/images/logos/mLogo.png",
+    apple: "/images/logos/mLogo.png",
   },
 };
 
