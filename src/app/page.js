@@ -12,6 +12,7 @@ import FAQ from "@/components/faq/FAQ";
 import StayInTheLoop_1 from "@/components/begin/StayInTheLoop_1";
 import Footer from "@/components/footer/Footer";
 import ScrollToTop from "@/components/common/ScrollToTop";
+import WorkShop from "@/components/workshop/WorkShop";
 
 export default function Home() {
   return (
@@ -48,6 +49,9 @@ export default function Home() {
 
       {/* Lead Capture Free Gift Form */}
       <LeadCapture />
+
+      {/* Join our next workshop */}
+      {/* <WorkShop /> */}
 
       {/* Frequently Asked Questions */}
       <FAQ />

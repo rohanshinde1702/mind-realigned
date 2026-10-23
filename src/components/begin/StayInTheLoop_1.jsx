@@ -60,7 +60,10 @@ const socialCards = [
   {
     name: 'Instagram',
     desc: 'Reels, tips and daily reminders',
-    href: SOCIAL_LINKS.instagram,
+    insta_1: 'momrenew',
+    insta_2: 'ashikamehta.relationships',
+    href_1: SOCIAL_LINKS.instagram_1,
+    href_2: SOCIAL_LINKS.instagram_2,
     icon: InstagramIcon,
     img: IMAGES.social.instaProfilePic,
   },
@@ -122,40 +125,40 @@ const StayInTheLoop_1 = () => {
           </a>
 
           {/* Social Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5 w-full mt-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5 w-full mt-2 items-stretch">
             {socialCards.map((soc) => {
-              const Img = soc.img
-
-              if (soc.bgImage) {
+              if (soc.href_1 && soc.href_2) {
                 return (
-                  <div key={soc.name} className="flex flex-col items-center gap-2 w-full">
-                    <a
-                      href={soc.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`${soc.name}: ${soc.desc}`}
-                      style={{
-                        backgroundImage: `url(${soc.bgImage})`,
-                        backgroundSize: 'contain',
-                        backgroundPosition: 'left center',
-                        backgroundRepeat: 'no-repeat',
-                      }}
-                      className="group relative flex items-center justify-end p-3.5 md:p-[14px_18px] rounded-[18px] bg-white text-[#2A211E] no-underline border-none transition-all duration-300 hover:-translate-y-0.5 shadow-xs overflow-hidden w-full"
-                    >
-                      <span className="sr-only">
-                        {soc.name} - {soc.desc}
-                      </span>
-                      {/* Hover tint overlay */}
-                      <div className="absolute inset-0 bg-black/0 group-hover:bg-[#F4DED6]/15 transition-colors pointer-events-none" />
-                    </a>
-                    <a
-                      href={soc.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-semibold text-[15px] md:text-[16px] text-[#2A211E] hover:text-[#B83A2A] transition-colors no-underline"
-                    >
-                      {soc.name}
-                    </a>
+                  <div
+                    key={soc.name}
+                    className="flex items-center gap-3.5 p-3.5 md:p-[14px_18px] rounded-[18px] bg-white border-[1.5px] border-[#E6D3C8] text-[#2A211E] text-left transition-all duration-200 hover:-translate-y-0.5 shadow-xs h-full"
+                  >
+                    <span className="flex-none w-[60px] h-[60px] rounded-full bg-[#F6DDD3] text-[#B83A2A] flex items-center justify-center overflow-hidden">
+                      <img className="rounded-full w-full h-full object-cover" src={soc.img} alt={soc.name} />
+                    </span>
+                    <div className="flex flex-col gap-1.5 min-w-0 flex-1">
+                      <b className="text-[16px] leading-5 text-[#2A211E]">{soc.name}</b>
+                      <div className="flex flex-col xl:flex-row gap-1 overflow-hidden">
+                        <a
+                          href={soc.href_2}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group/link flex items-center justify-between px-2.5 py-1 rounded-lg bg-[#FAF4F0] hover:bg-[#141010] text-[#2A211E] hover:text-white text-[12px] font-medium transition-all no-underline"
+                        >
+                          <span className="truncate">@{soc.insta_2}</span>
+                          <ArrowUpRight className="w-3.5 h-3.5 ml-1 opacity-60 group-hover/link:opacity-100 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-all shrink-0" />
+                        </a>
+                        <a
+                          href={soc.href_1}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group/link flex items-center justify-between px-2.5 py-1 rounded-lg bg-[#FAF4F0] hover:bg-[#141010] text-[#2A211E] hover:text-white text-[12px] font-medium transition-all no-underline"
+                        >
+                          <span className="truncate">@{soc.insta_1}</span>
+                          <ArrowUpRight className="w-3.5 h-3.5 ml-1 opacity-60 group-hover/link:opacity-100 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-all shrink-0" />
+                        </a>
+                      </div>
+                    </div>
                   </div>
                 )
               }
@@ -165,10 +168,11 @@ const StayInTheLoop_1 = () => {
                   key={soc.name}
                   href={soc.href}
                   target="_blank"
-                  className="group flex items-center gap-3.5 p-3.5 md:p-[14px_18px] rounded-[18px] bg-white border-[1.5px] border-[#E6D3C8] text-[#2A211E] text-left no-underline transition-all duration-200 hover:bg-black hover:text-white hover:border-black hover:-translate-y-0.5 shadow-xs"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-3.5 p-3.5 md:p-[14px_18px] rounded-[18px] bg-white border-[1.5px] border-[#E6D3C8] text-[#2A211E] text-left no-underline transition-all duration-200 hover:bg-black hover:text-white hover:border-black hover:-translate-y-0.5 shadow-xs h-full"
                 >
-                  <span className="flex-none w-[60px] h-[60px] rounded-full bg-[#F6DDD3] text-[#B83A2A] flex items-center justify-center transition-colors group-hover:bg-white">
-                    <img className='rounded-full' src={soc.img} alt="" />
+                  <span className="flex-none w-[60px] h-[60px] rounded-full bg-[#F6DDD3] text-[#B83A2A] flex items-center justify-center transition-colors group-hover:bg-white overflow-hidden">
+                    <img className="rounded-full w-full h-full object-cover" src={soc.img} alt={soc.name} />
                   </span>
                   <span className="flex flex-col gap-0.5 min-w-0">
                     <b className="text-[16px] leading-5">{soc.name}</b>

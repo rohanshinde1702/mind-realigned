@@ -24,6 +24,7 @@ const ExploreCourses = () => {
     4: 'f',
     5: 'f',
     6: 'f',
+    7: 'f',
   })
   const [activeCategory, setActiveCategory] = useState('all')
   const swiperRef = useRef(null)
@@ -41,10 +42,7 @@ const ExploreCourses = () => {
     (c) => activeCategory === 'all' || c.aud === activeCategory
   )
 
-  const slidesToRender =
-    filteredCourses.length > 0 && filteredCourses.length < 6
-      ? [...filteredCourses, ...filteredCourses]
-      : filteredCourses
+  const canLoop = filteredCourses.length > 3
 
   return (
     <section id="courses" className="bg-[#FCF0EB] pt-11 pb-[60px] overflow-x-clip">
@@ -131,7 +129,12 @@ const ExploreCourses = () => {
                 type="button"
                 onClick={() => swiperRef.current?.slidePrev()}
                 aria-label="Previous courses"
-                className="w-8 h-8 rounded-full bg-white border border-[#E6CFC6] text-[#141010] hover:bg-[#141010] hover:text-white flex items-center justify-center transition-colors shadow-xs cursor-pointer"
+                disabled={filteredCourses.length <= 1}
+                className={`w-8 h-8 rounded-full bg-white border border-[#E6CFC6] text-[#141010] flex items-center justify-center transition-colors shadow-xs ${
+                  filteredCourses.length <= 1
+                    ? 'opacity-40 cursor-not-allowed'
+                    : 'hover:bg-[#141010] hover:text-white cursor-pointer'
+                }`}
               >
                 <ChevronLeft className="w-4 h-4" />
               </button>
@@ -139,7 +142,12 @@ const ExploreCourses = () => {
                 type="button"
                 onClick={() => swiperRef.current?.slideNext()}
                 aria-label="Next courses"
-                className="w-8 h-8 rounded-full bg-white border border-[#E6CFC6] text-[#141010] hover:bg-[#141010] hover:text-white flex items-center justify-center transition-colors shadow-xs cursor-pointer"
+                disabled={filteredCourses.length <= 1}
+                className={`w-8 h-8 rounded-full bg-white border border-[#E6CFC6] text-[#141010] flex items-center justify-center transition-colors shadow-xs ${
+                  filteredCourses.length <= 1
+                    ? 'opacity-40 cursor-not-allowed'
+                    : 'hover:bg-[#141010] hover:text-white cursor-pointer'
+                }`}
               >
                 <ChevronRight className="w-4 h-4" />
               </button>
@@ -149,47 +157,57 @@ const ExploreCourses = () => {
 
         {/* Swiper Slider */}
         <div className="w-full mt-[22px] overflow-hidden">
-          <Swiper
-            key={activeCategory}
-            onSwiper={(swiper) => {
-              swiperRef.current = swiper
-            }}
-            modules={[Navigation, Pagination, Autoplay]}
-            loop={true}
-            loopAdditionalSlides={2}
-            autoplay={{
-              delay: 4500,
-              disableOnInteraction: false,
-              pauseOnMouseEnter: true,
-            }}
-            spaceBetween={24}
-            slidesPerView={1}
-            grabCursor={true}
-            pagination={{
-              clickable: true,
-            }}
-            breakpoints={{
-              640: {
-                slidesPerView: 1.5,
-                spaceBetween: 20,
-              },
-              768: {
-                slidesPerView: 2,
-                spaceBetween: 24,
-              },
-              1080: {
-                slidesPerView: 3,
-                spaceBetween: 28,
-              },
-            }}
-            className="w-full pb-2"
-          >
-            {slidesToRender.map((course, idx) => {
-              const currentFormat = courseFormats[course.id] || 'f'
-              const pricePair = course.prices[currentFormat]
+          {filteredCourses.length === 0 ? (
+            <div className="py-12 text-center text-[#8A6B66] text-[15px]">
+              No courses available in this category yet.
+            </div>
+          ) : (
+            <Swiper
+              key={`${activeCategory}-${canLoop}`}
+              onSwiper={(swiper) => {
+                swiperRef.current = swiper
+              }}
+              modules={[Navigation, Pagination, Autoplay]}
+              loop={canLoop}
+              rewind={!canLoop && filteredCourses.length > 1}
+              autoplay={
+                filteredCourses.length > 1
+                  ? {
+                      delay: 4500,
+                      disableOnInteraction: false,
+                      pauseOnMouseEnter: true,
+                    }
+                  : false
+              }
+              spaceBetween={24}
+              slidesPerView={1}
+              grabCursor={true}
+              centerInsufficientSlides={true}
+              pagination={{
+                clickable: true,
+              }}
+              breakpoints={{
+                640: {
+                  slidesPerView: 1.5,
+                  spaceBetween: 20,
+                },
+                768: {
+                  slidesPerView: 2,
+                  spaceBetween: 24,
+                },
+                1080: {
+                  slidesPerView: 3,
+                  spaceBetween: 28,
+                },
+              }}
+              className="w-full pb-2"
+            >
+              {filteredCourses.map((course) => {
+                const currentFormat = courseFormats[course.id] || 'f'
+                const pricePair = course.prices[currentFormat]
 
-              return (
-                <SwiperSlide key={`${course.id}-${idx}`} className="h-auto">
+                return (
+                  <SwiperSlide key={course.id} className="h-auto">
                   <div
                     style={{ backgroundColor: course.bg }}
                     className="relative rounded-[24px] overflow-hidden flex flex-col shadow-[0_5px_16px_rgba(80,40,30,0.18),0_1px_3px_rgba(80,40,30,0.1)] h-[520px] transition-transform duration-200 hover:-translate-y-1 select-none"
@@ -276,8 +294,9 @@ const ExploreCourses = () => {
               )
             })}
           </Swiper>
-        </div>
+        )}
       </div>
+    </div>
     </section>
   )
 }

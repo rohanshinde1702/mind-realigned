@@ -21,10 +21,7 @@ const Testimonials = () => {
     (t) => activeFilter === 'all' || t.aud === activeFilter
   )
 
-  const slidesToRender =
-    filteredList.length > 0 && filteredList.length < 6
-      ? [...filteredList, ...filteredList]
-      : filteredList
+  const canLoop = filteredList.length > 3
 
   return (
     <section id="voices" className="bg-white pt-12 pb-14 overflow-hidden">
@@ -69,7 +66,12 @@ const Testimonials = () => {
               type="button"
               onClick={() => swiperRef.current?.slidePrev()}
               aria-label="Previous testimonials"
-              className="w-8 h-8 rounded-full bg-white border border-[#E6CFC6] text-[#141010] hover:bg-[#141010] hover:text-white flex items-center justify-center transition-colors shadow-xs cursor-pointer"
+              disabled={filteredList.length <= 1}
+              className={`w-8 h-8 rounded-full bg-white border border-[#E6CFC6] text-[#141010] flex items-center justify-center transition-colors shadow-xs ${
+                filteredList.length <= 1
+                  ? 'opacity-40 cursor-not-allowed'
+                  : 'hover:bg-[#141010] hover:text-white cursor-pointer'
+              }`}
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
@@ -77,7 +79,12 @@ const Testimonials = () => {
               type="button"
               onClick={() => swiperRef.current?.slideNext()}
               aria-label="Next testimonials"
-              className="w-8 h-8 rounded-full bg-white border border-[#E6CFC6] text-[#141010] hover:bg-[#141010] hover:text-white flex items-center justify-center transition-colors shadow-xs cursor-pointer"
+              disabled={filteredList.length <= 1}
+              className={`w-8 h-8 rounded-full bg-white border border-[#E6CFC6] text-[#141010] flex items-center justify-center transition-colors shadow-xs ${
+                filteredList.length <= 1
+                  ? 'opacity-40 cursor-not-allowed'
+                  : 'hover:bg-[#141010] hover:text-white cursor-pointer'
+              }`}
             >
               <ChevronRight className="w-4 h-4" />
             </button>
@@ -86,42 +93,52 @@ const Testimonials = () => {
 
         {/* Swiper Slider */}
         <div className="w-full mt-6 md:mt-8 overflow-hidden">
-          <Swiper
-            key={activeFilter}
-            onSwiper={(swiper) => {
-              swiperRef.current = swiper
-            }}
-            modules={[Navigation, Pagination, Autoplay]}
-            loop={true}
-            loopAdditionalSlides={2}
-            autoplay={{
-              delay: 4500,
-              disableOnInteraction: false,
-              pauseOnMouseEnter: true,
-            }}
-            spaceBetween={24}
-            slidesPerView={1}
-            grabCursor={true}
-            pagination={{
-              clickable: true,
-            }}
-            breakpoints={{
-              640: {
-                slidesPerView: 1.5,
-                spaceBetween: 20,
-              },
-              768: {
-                slidesPerView: 2,
-                spaceBetween: 24,
-              },
-              1100: {
-                slidesPerView: 3,
-                spaceBetween: 28,
-              },
-            }}
-            className="w-full pb-2"
-          >
-            {slidesToRender.map((item, index) => (
+          {filteredList.length === 0 ? (
+            <div className="py-12 text-center text-[#8A6B66] text-[15px]">
+              No testimonials available in this category yet.
+            </div>
+          ) : (
+            <Swiper
+              key={`${activeFilter}-${canLoop}`}
+              onSwiper={(swiper) => {
+                swiperRef.current = swiper
+              }}
+              modules={[Navigation, Pagination, Autoplay]}
+              loop={canLoop}
+              rewind={!canLoop && filteredList.length > 1}
+              autoplay={
+                filteredList.length > 1
+                  ? {
+                      delay: 4500,
+                      disableOnInteraction: false,
+                      pauseOnMouseEnter: true,
+                    }
+                  : false
+              }
+              spaceBetween={24}
+              slidesPerView={1}
+              grabCursor={true}
+              centerInsufficientSlides={true}
+              pagination={{
+                clickable: true,
+              }}
+              breakpoints={{
+                640: {
+                  slidesPerView: 1.5,
+                  spaceBetween: 20,
+                },
+                768: {
+                  slidesPerView: 2,
+                  spaceBetween: 24,
+                },
+                1100: {
+                  slidesPerView: 3,
+                  spaceBetween: 28,
+                },
+              }}
+              className="w-full pb-2"
+            >
+              {filteredList.map((item, index) => (
               <SwiperSlide key={`${item.who}-${index}`} className="!h-auto flex flex-col">
                 <figure className="flex-1 w-full bg-white border border-[#F1DDD4] shadow-[0_10px_26px_-10px_rgba(120,60,45,0.2),0_2px_6px_rgba(120,60,45,0.06)] rounded-[22px] p-6 flex flex-col items-center text-center transition-transform duration-200 hover:-translate-y-1 select-none">
                   <blockquote className="m-0 font-['Merriweather',Georgia,serif] text-[15px] leading-[23px] text-[#2B2321] flex-1 flex flex-col justify-center">
@@ -157,8 +174,9 @@ const Testimonials = () => {
               </SwiperSlide>
             ))}
           </Swiper>
-        </div>
+        )}
       </div>
+    </div>
     </section>
   )
 }
