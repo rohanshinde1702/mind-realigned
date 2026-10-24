@@ -198,7 +198,7 @@ const StayInTheLoop_1 = () => {
               Or get Ashika’s Substack by email
             </label>
             <span className="text-[14px] leading-5 font-medium text-[#8A6B66]">
-              One thoughtful essay a week. Unsubscribe any time.
+              One thoughtful article a week. Unsubscribe any time.
             </span>
 
             <div className="mt-3.5 w-full md:w-1/2 flex flex-col sm:flex-row gap-2.5">
