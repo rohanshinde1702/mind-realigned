@@ -51,6 +51,16 @@ export const TESTIMONIAL_DATA = [
     logo: IMAGES.testimonials.badgeGoogle,
     alt: 'Google reviews, 5 stars',
   },
+  {
+    aud: 'self-worth',
+    ul: '“The Reclaim Your Self-Worth course makes it easier to work on yourself at your own pace.',
+    rest: " The practical tools are easy to follow and can be applied to everyday situations.",
+    who: '– Nisha Bhide',
+    init: 'NB',
+    bg: '#F4C9BE',
+    logo: IMAGES.testimonials.badgeGoogle,
+    alt: 'Google reviews, 5 stars',
+  },
 ];
 
 export const FILTER_TABS = [
