@@ -42,12 +42,12 @@ const Hero = () => {
           <b className="text-[#7A625C] font-bold">Modern life can be overwhelming.</b> Learn from science-backed, self-paced video courses that teach real-life emotional skills to help you feel calmer, think clearer, and build real confidence.
         </p>
         <div className="flex flex-row items-center gap-[10px] mt-[26px] flex-nowrap">
-          <a
+          {/* <a
             href="#courses"
             className="inline-flex items-center justify-center text-center text-xs md:text-sm py-1 px-3 md:py-2 md:px-5 rounded-full bg-[#B83A2A] hover:bg-[#8F2C1F] text-white font-bold no-underline transition-colors duration-200 shadow-sm"
           >
             Explore Courses
-          </a>
+          </a> */}
           <a
             href="#glimpse"
             className="text-[#241C1A] hover:text-[#B83A2A] font-bold text-xs md:text-sm py-1 px-3 md:py-2 md:px-5 underline underline-offset-[3px] py-2.5 transition-colors"

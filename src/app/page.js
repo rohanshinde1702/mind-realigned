@@ -43,15 +43,15 @@ export default function Home() {
       </Suspense>
 
       {/* Explore Resources / Courses */}
-      <Suspense fallback={<div className="h-96" />}>
+      {/* <Suspense fallback={<div className="h-96" />}>
         <ExploreCourses />
-      </Suspense>
+      </Suspense> */}
 
       {/* Lead Capture Free Gift Form */}
       <LeadCapture />
 
       {/* Join our next workshop */}
-      {/* <WorkShop /> */}
+      <WorkShop />
 
       {/* Frequently Asked Questions */}
       <FAQ />

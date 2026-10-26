@@ -66,7 +66,10 @@ export async function sendEmailNotification({
   if (toEmail) {
     finalParams.to_email = toEmail;
     finalParams.toEmail = toEmail;
+    finalParams.to = toEmail;
+    finalParams.recipient = toEmail;
   }
+
 
   const payload = {
     service_id: sId,
