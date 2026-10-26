@@ -29,7 +29,7 @@ export const IMAGES = {
     badgeGoogle: '/images/testimonials/badge-google.webp',
   },
   social: {
-    instaProfilePic: '/images/social/Insta-profile-pic.jpg',
+    instaProfilePic: '/images/social/ashika-1.png',
     instaProfile: '/images/social/Insta-profile.jpg',
     ytProfile: '/images/social/YT-profile.jpg',
     youtubeProfilePic: '/images/social/youtube-profile-pic.jpg',
