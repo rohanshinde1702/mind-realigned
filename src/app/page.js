@@ -13,6 +13,7 @@ import StayInTheLoop_1 from "@/components/begin/StayInTheLoop_1";
 import Footer from "@/components/footer/Footer";
 import ScrollToTop from "@/components/common/ScrollToTop";
 import WorkShop from "@/components/workshop/WorkShop";
+import Article from "@/components/article/Article";
 
 export default function Home() {
   return (
@@ -49,6 +50,9 @@ export default function Home() {
 
       {/* Lead Capture Free Gift Form */}
       <LeadCapture />
+
+      {/* Article Section */}
+      <Article />
 
       {/* Join our next workshop */}
       <WorkShop />
