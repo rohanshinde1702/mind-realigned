@@ -18,16 +18,29 @@ const LeadCapture = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
 
+  const handlePhoneChange = (e) => {
+    const digitsOnly = e.target.value.replace(/\D/g, '').slice(0, 10)
+    setPhoneNumber(digitsOnly)
+    if (errorMessage) setErrorMessage('')
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
-    setIsSubmitting(true)
     setErrorMessage('')
+
+    const cleanPhone = phoneNumber.replace(/\D/g, '')
+    if (cleanPhone.length > 0 && cleanPhone.length !== 10) {
+      setErrorMessage('Phone number must be exactly 10 digits.')
+      return
+    }
+
+    setIsSubmitting(true)
 
     try {
       await submitLead({
         firstName,
         email,
-        phoneNumber,
+        phoneNumber: cleanPhone,
         selectedCourse: coursePills[selectedCourse],
       })
       setSubmitted(true)
@@ -170,9 +183,11 @@ const LeadCapture = () => {
           <input
             id="g-phone"
             type="tel"
+            inputMode="numeric"
+            maxLength={10}
             value={phoneNumber}
-            onChange={(e) => setPhoneNumber(e.target.value)}
-            placeholder="Your phone number"
+            onChange={handlePhoneChange}
+            placeholder="10-digit phone number"
             className="mt-1.5 h-[46px] border border-[#D9A99A] rounded-xl px-3.5 text-[15px] text-[#2A211E] bg-white focus:outline-none focus:ring-2 focus:ring-[#D03A24]/30"
           />
 
