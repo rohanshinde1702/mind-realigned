@@ -10,6 +10,8 @@ export const SOCIAL_LINKS = {
   instagram: 'https://www.instagram.com/momrenew',
   instagram_1: 'https://www.instagram.com/momrenew',
   instagram_2: 'https://www.instagram.com/ashikamehta.relationships',
+  instagram_momrenew: 'https://www.instagram.com/momrenew',
+  instagram_relationships: 'https://www.instagram.com/ashikamehta.relationships',
   youtube: 'https://www.youtube.com/@mindrealignedbyashika',
   substack: '/#begin',
 };

@@ -5,7 +5,7 @@ const Footer = () => {
   const currentYear = SITE_CONFIG.copyrightYear
 
   return (
-    <footer id="contact" className="bg-[#2A211E] text-[#F6E8E2] pt-12 md:pt-[72px] pb-7 md:pb-10">
+    <footer id="contact" className="bg-[#131f34] text-[#F6E8E2] pt-12 md:pt-[72px] pb-7 md:pb-10">
       <div className="container mx-auto">
         {/* Top Section */}
         <div className="flex flex-col md:flex-row justify-between gap-12 md:gap-16">
@@ -64,14 +64,32 @@ const Footer = () => {
               <span className="text-xs tracking-[0.14em] uppercase text-[#E3D5CA] font-semibold">
                 Follow
               </span>
-              <a
-                href={SOCIAL_LINKS.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#F6E8E2] hover:text-white transition-colors no-underline"
-              >
-                Instagram
-              </a>
+
+              {/* Instagram with Sub Menus */}
+              <div className="flex flex-col gap-1.5">
+                <span className="text-[#F6E8E2]">
+                  Instagram
+                </span>
+                <div className="flex flex-col gap-1.5 pl-3 border-l border-[#5A4B46]">
+                  <a
+                    href={SOCIAL_LINKS.instagram_relationships}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[13.5px] text-[#E3D5CA] hover:text-white transition-colors no-underline"
+                  >
+                    @ashikamehta.relationships
+                  </a>
+                  <a
+                    href={SOCIAL_LINKS.instagram_momrenew}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[13.5px] text-[#E3D5CA] hover:text-white transition-colors no-underline"
+                  >
+                    @momrenew
+                  </a>
+                </div>
+              </div>
+
               <a
                 href={SOCIAL_LINKS.youtube}
                 target="_blank"
@@ -96,10 +114,10 @@ const Footer = () => {
             <Link href="/coming-soon?page=Support Resources" className="underline hover:text-white transition-colors">
               Support resources
             </Link>
-            <Link href="/coming-soon?page=Privacy Policy" className="underline hover:text-white transition-colors">
+            <Link href="/privacy" className="underline hover:text-white transition-colors">
               Privacy
             </Link>
-            <Link href="/coming-soon?page=Terms of Service" className="underline hover:text-white transition-colors">
+            <Link href="/terms" className="underline hover:text-white transition-colors">
               Terms
             </Link>
           </nav>

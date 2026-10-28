@@ -12,7 +12,7 @@ import 'swiper/css/pagination'
 
 import { ARTICLE_DATA } from '@/data/articleData'
 
-const emptySubscribe = () => () => {}
+const emptySubscribe = () => () => { }
 
 const Article = () => {
   const swiperRef = useRef(null)
@@ -22,12 +22,12 @@ const Article = () => {
   const renderCard = (data) => {
     const title = data.title || data.headings?.head1 || `Article ${data.id}`
     const cardContent = (
-      <div className="group relative h-full flex flex-col bg-white rounded-2xl border border-[#E8D4CB] overflow-hidden shadow-[0_4px_18px_rgba(80,40,30,0.06)] hover:shadow-[0_16px_36px_rgba(80,40,30,0.12)] hover:-translate-y-1.5 transition-all duration-300">
-        <div className="relative w-full aspect-[4/5] overflow-hidden bg-[#F6EDE8] cursor-pointer">
+      <div className="group relative h-full flex flex-col hover:shadow-[0_16px_36px_rgba(80,40,30,0.12)] transition-all duration-300">
+        <div className="relative w-full h-70 sm:h-75 md:h-80 lg:h-70 xl:h-95 overflow-hidden rounded-2xl cursor-pointer">
           <img
             src={data.thumbImg}
             alt={title}
-            className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+            className="w-full h-full object-contain rounded-2xl object-top transition-transform duration-500 ease-in-out group-hover:scale-105 origin-top"
           />
         </div>
       </div>
@@ -68,7 +68,7 @@ const Article = () => {
               Newsroom
             </h2>
             <p className="text-center mt-3 text-[15px] sm:text-[16px] text-[#6E5D57] leading-relaxed">
-              Our work accross media.
+              Our work across media.
             </p>
           </div>
         </div>
@@ -103,7 +103,7 @@ const Article = () => {
           </button>
 
           {!isMounted ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {articleList.slice(0, 4).map((data) => (
                 <div key={data.id}>
                   {renderCard(data)}
@@ -134,8 +134,8 @@ const Article = () => {
               }}
               breakpoints={{
                 640: {
-                  slidesPerView: 2,
-                  spaceBetween: 20,
+                  slidesPerView: 3,
+                  spaceBetween: 12,
                 },
                 1024: {
                   slidesPerView: 4,
