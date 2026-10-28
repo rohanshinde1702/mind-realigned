@@ -3,7 +3,7 @@ export const NAV_LINKS = [
   { label: 'Relationships', href: '/coming-soon?page=Relationships' },
   { label: 'Talks', href: '/coming-soon?page=Talks' },
   { label: 'About', href: '/coming-soon?page=About' },
-  { label: 'Engagements', href: '/coming-soon?page=About' },
+  { label: 'Engagements', href: '/coming-soon?page=Engagements' },
 ];
 
 export const SOCIAL_LINKS = {

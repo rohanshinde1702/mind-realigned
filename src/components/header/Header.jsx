@@ -58,12 +58,12 @@ const Header = () => {
 
         {/* Right Header Actions */}
         <div className="flex items-center gap-1.5 md:gap-3">
-          <a
-            href="#glimpse"
+          <Link
+            href="/#glimpse"
             className="inline-flex items-center justify-center h-9 px-4 lg:w-[101px] lg:px-0 rounded-full bg-[#B83A2A] hover:bg-[#8F2C1F] text-white text-[14px] lg:text-[16px] font-medium lg:font-normal whitespace-nowrap transition-all duration-200 shadow-sm"
           >
             Reach Out
-          </a>
+          </Link>
 
           {/* Mobile Hamburger Button */}
           <button

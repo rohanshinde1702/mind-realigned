@@ -5,5 +5,5 @@ export const SITE_CONFIG = {
   description:
     'Understand your patterns. Live better. Science-backed, self-paced video courses, talks and therapy from Ashika Mehta.',
   themeColor: '#F8EAE5',
-  copyrightYear: 2025,
+  copyrightYear: 2026,
 };

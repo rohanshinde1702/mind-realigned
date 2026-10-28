@@ -144,56 +144,33 @@ const ArticleDirectory = () => {
               >
                 <div>
                   {/* Thumbnail Image Header */}
-                  <div className="relative  w-full overflow-hidden bg-[#F6EDE8]">
-                    <img
-                      src={article.thumbImg}
-                      alt={title}
-                      className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <Link href={`/article/${article.id}`}>
+                    <div className="relative  w-full overflow-hidden bg-[#F6EDE8]">
+                      <img
+                        src={article.thumbImg}
+                        alt={title}
+                        className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-                    {/* Category Badge */}
-                    {article.category && (
-                      <div className="absolute top-3.5 left-3.5 z-10">
-                        <span className="inline-flex items-center px-3 py-1 rounded-full text-[11px] font-bold tracking-wider uppercase bg-[#141010]/85 backdrop-blur-md text-white shadow-xs">
-                          {article.category}
-                        </span>
-                      </div>
-                    )}
+                      {/* Category Badge */}
+                      {article.category && (
+                        <div className="absolute top-3.5 left-3.5 z-10">
+                          <span className="inline-flex items-center px-3 py-1 rounded-full text-[11px] font-bold tracking-wider uppercase bg-[#141010]/85 backdrop-blur-md text-white shadow-xs">
+                            {article.category}
+                          </span>
+                        </div>
+                      )}
 
-                    {/* Link Indicator Badge */}
-                    {article.href && (
-                      <div className="absolute top-3.5 right-3.5 z-10 px-2.5 py-1 rounded-full bg-white/95 text-[#141010] text-[11px] font-bold flex items-center gap-1 shadow-xs">
-                        <span>Flipbook</span>
-                        <ArrowUpRight className="w-3.5 h-3.5" />
-                      </div>
-                    )}
-                  </div>
-                </div>
-
-                {/* Footer Action Button */}
-                <div className="p-6 pt-0 mt-2">
-                  <div className="pt-4 border-t border-[#F2E5DF] flex items-center justify-between">
-                    {article.href ? (
-                      <a
-                        href={article.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center justify-between w-full h-11 px-5 rounded-full bg-[#141010] hover:bg-[#B83A2A] text-white text-xs font-semibold uppercase tracking-wider transition-all duration-200 shadow-xs"
-                      >
-                        <span>Open Flipbook Edition</span>
-                        <ArrowUpRight className="w-4 h-4 ml-1.5" />
-                      </a>
-                    ) : (
-                      <Link
-                        href={`/article/${article.id}`}
-                        className="inline-flex items-center justify-between w-full h-11 px-5 rounded-full bg-[#141010] hover:bg-[#B83A2A] text-white text-xs font-semibold uppercase tracking-wider transition-all duration-200 shadow-xs group/btn"
-                      >
-                        <span>Read Full Article</span>
-                        <ArrowRight className="w-4 h-4 ml-1.5 transition-transform duration-300 group-hover/btn:translate-x-1" />
-                      </Link>
-                    )}
-                  </div>
+                      {/* Link Indicator Badge */}
+                      {article.href && (
+                        <div className="absolute top-3.5 right-3.5 z-10 px-2.5 py-1 rounded-full bg-white/95 text-[#141010] text-[11px] font-bold flex items-center gap-1 shadow-xs">
+                          <span>Flipbook</span>
+                          <ArrowUpRight className="w-3.5 h-3.5" />
+                        </div>
+                      )}
+                    </div>
+                  </Link>
                 </div>
               </article>
             )
