@@ -77,7 +77,10 @@ const Article = () => {
           {/* Previous Button (Left) */}
           <button
             type="button"
-            onClick={() => swiperRef.current?.slidePrev()}
+            onClick={() => {
+              if (!swiperRef.current || swiperRef.current.destroyed) return
+              swiperRef.current.slidePrev()
+            }}
             aria-label="Previous articles"
             disabled={!isMounted || articleList.length <= 1}
             className="absolute left-0 sm:-left-4 lg:-left-6 top-[calc(50%-14px)] -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/95 backdrop-blur-xs border border-[#E0CBC2] text-[#141010] flex items-center justify-center transition-all duration-200 shadow-md hover:shadow-lg hover:bg-[#141010] hover:text-white hover:border-[#141010] hover:scale-105 cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-white disabled:hover:text-[#141010] disabled:hover:scale-100"
@@ -88,7 +91,10 @@ const Article = () => {
           {/* Next Button (Right) */}
           <button
             type="button"
-            onClick={() => swiperRef.current?.slideNext()}
+            onClick={() => {
+              if (!swiperRef.current || swiperRef.current.destroyed) return
+              swiperRef.current.slideNext()
+            }}
             aria-label="Next articles"
             disabled={!isMounted || articleList.length <= 1}
             className="absolute right-0 sm:-right-4 lg:-right-6 top-[calc(50%-14px)] -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/95 backdrop-blur-xs border border-[#E0CBC2] text-[#141010] flex items-center justify-center transition-all duration-200 shadow-md hover:shadow-lg hover:bg-[#141010] hover:text-white hover:border-[#141010] hover:scale-105 cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-white disabled:hover:text-[#141010] disabled:hover:scale-100"
@@ -98,7 +104,7 @@ const Article = () => {
 
           {!isMounted ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {articleList.slice(0, 3).map((data) => (
+              {articleList.slice(0, 4).map((data) => (
                 <div key={data.id}>
                   {renderCard(data)}
                 </div>
@@ -112,6 +118,9 @@ const Article = () => {
               }}
               modules={[Navigation, Pagination, Autoplay]}
               loop={true}
+              rewind={articleList.length > 1}
+              speed={450}
+              watchSlidesProgress={true}
               autoplay={{
                 delay: 4500,
                 disableOnInteraction: false,
@@ -129,7 +138,7 @@ const Article = () => {
                   spaceBetween: 20,
                 },
                 1024: {
-                  slidesPerView: 3,
+                  slidesPerView: 4,
                   spaceBetween: 24,
                 },
               }}

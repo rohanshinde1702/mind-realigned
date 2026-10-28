@@ -185,8 +185,8 @@ export default async function Page(props) {
                 )}
               </header>
 
-              {/* Featured Hero Image (if present, except id: 4 where image comes after text) */}
-              {article.thumbImg && article.id !== 4 && (
+              {/* Featured Hero Image (if present, except id: 2 and 4 where top hero image is omitted) */}
+              {article.thumbImg && article.id !== 4 && article.id !== 2 && (
                 <div className="mb-8 overflow-hidden rounded-2xl">
                   <img
                     src={article.thumbImg}

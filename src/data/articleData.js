@@ -28,9 +28,60 @@ export const ARTICLE_DATA = [
     {
         id: 2,
         thumbImg: '/images/article/Isprava/IMG_4588.PNG',
-        title: 'Seeking validation isn’t the problem. Losing ourselves is.',
-        category: 'Flipbook Publication',
-        href: 'https://heyzine.com/flip-book/f095d85a11.html'
+        title: 'Let’s Talk: How We Approach Our Mental Well-Being',
+        subtitle: 'The biggest change in the last decade has been how we approach our mental well-being.',
+        category: 'Editorial Column',
+        publication: {
+            name: 'Isprava Insider',
+            section: 'Beauty & Wellness',
+            author: 'Ashika Mehta',
+            readTime: '4 min read',
+            badge: 'Published in Isprava Insider'
+        },
+        author: {
+            name: 'Ashika Mehta',
+            credentials: 'MBBS, Psychotherapist & Mindset Coach',
+            bio: 'Founder of Mind Realigned. Trained at Columbia University with over 17 years of experience helping adults, parents, and organizations build emotional agility.',
+            avatar: '/images/social/ashika-1.png'
+        },
+        desc: `Ten years ago, the people who walked into my therapy room in Mumbai looked very different. Most arrived through a psychiatrist's referral, often with a diagnosis: major depression, bipolar disorder, schizophrenia, severe anxiety disorders. Therapy was largely understood as part of a treatment plan. It existed within a medical framework and was mostly sought when psychological distress had become difficult to ignore.
+
+Today, many of the people sitting across from me have never seen a psychiatrist. They do not come seeking treatment for an illness. They come seeking understanding.
+
+This shift points to a distinction that remains poorly understood. Mental illness and mental health are not the same thing. Mental illness refers to diagnosable clinical conditions, whilst mental health encompasses something broader. The World Health Organization defines mental health as a state of well-being in which an individual can cope with the normal stresses of life, work productively, realise their abilities, and contribute to their community. By that definition, the absence of illness is not enough.
+
+You can carry a diagnosis and flourish. You can also have no diagnosis whatsoever and find yourself quietly overwhelmed by the demands of modern life.
+
+Over the last decade, therapy in urban India has undergone a subtle but profound transformation. It has moved beyond the treatment of pathology and increasingly into the realm of self-understanding. People want to know why they keep finding themselves in the same relationship dynamics. Why success feels strangely empty. Why they react so intensely to criticism, why they struggle to set boundaries, tolerate uncertainty, trust themselves, or feel at ease in their own lives. Why they feel exhausted and overwhelmed.
+
+People are no longer only asking, “How do I stop feeling anxious?” They are asking, “Why do I live the way I do?”
+
+The language that enters my office today reflects this shift. Clients speak about burnout, emotional regulation, attachment styles, people-pleasing, boundaries, childhood wounds, relationship patterns, authenticity, and purpose. They want to understand not simply what they are feeling, but what lies beneath it. In many ways, therapy has become one of the few spaces left in modern life where there is time to examine the architecture of the self.
+
+The timing of this cultural shift is hardly accidental. India is experiencing unprecedented levels of workplace exhaustion. Surveys consistently place burnout among Indian employees among the highest in the world. Work no longer has clear edges. The smartphone has dissolved the boundary between professional and personal life, creating a culture in which availability is mistaken for commitment and productivity becomes a measure of worth.
+
+Yet work is only one part of the story. For the first time, ordinary people are living under conditions of constant social comparison. Previous generations compared themselves to neighbours, colleagues, and extended family. Today's comparisons are global, immediate, and relentless. Success is no longer something we experience—it is something we are expected to display. Our careers, relationships, homes, holidays, parenting styles, and personal growth journeys have become increasingly performative. The result is a peculiar kind of exhaustion that many clients struggle to articulate. It is not merely the fatigue of doing too much. It is the fatigue of constantly managing how one's life appears.
+
+The tragedy, of course, is that many people arrive in therapy having achieved precisely what they once believed would make them happy—and yet something still feels missing. What they are confronting is not failure, but a crisis of meaning. At the same time, the pace of contemporary life leaves remarkably little room for emotional processing. We move from meeting to meeting, deadline to deadline, notification to notification. For many clients, the therapy hour has become the only place in the week where they are not required to produce, perform, or optimise. It is simply a place to think.
+
+I often describe therapy as being less like fixing a machine and more like exploring an iceberg. Most of us live from the visible tip: our behaviours, reactions, habits, and choices. Beneath the surface lies a far larger landscape. The work of therapy is not to judge what is beneath the waterline. It is to make it visible.
+
+Much of the growing openness towards therapy can be traced to a broader cultural shift. When figures such as Deepika Padukone and Aamir Khan spoke openly about their experiences with depression, they helped challenge longstanding assumptions. Social media too, despite its many drawbacks, has given people a vocabulary for experiences they previously struggled to name.
+
+Yet I believe the deepest reason therapy has gained traction is not awareness but loneliness. India is one of the few places in the world where many individuals live together in one home and yet still report feeling isolated. A significant driver for people seeking therapy today is the desire to find connection—to themselves.
+
+If the last decade has been about reducing stigma, the next must be about reducing barriers. The growth of therapy remains largely an urban phenomenon. Whilst attitudes are shifting across India, access remains deeply unequal, and mental health care continues to be financially out of reach for many. The country's treatment gap remains substantial—and closing it is the work that lies ahead.`,
+        tags: [
+            'MentalHealth',
+            'Therapy',
+            'SelfUnderstanding',
+            'WellBeing',
+            'ModernLife',
+            'IspravaInsider'
+        ],
+        images: {
+            img1: '/images/article/Isprava/img-1.jpg'
+        }
     },
     {
         id: 3,
@@ -171,7 +222,7 @@ That’s not a personal failure. It’s a sign that our definition of “intelli
             'ChildDevelopment'
         ],
         images: {
-            img1: '/images/article/TOI2/img-1.jpg'
+            img1: ''
         }
     },
     {
